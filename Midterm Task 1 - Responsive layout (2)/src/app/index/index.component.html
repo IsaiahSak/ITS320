@@ -1,0 +1,21 @@
+<div class="quote-container">
+  <h2>Add New Quote</h2>
+
+  <form (submit)="createQuote(); $event.preventDefault()">
+    <input type="text" [(ngModel)]="newQuote.author" name="author" placeholder="Author" required />
+    <input type="text" [(ngModel)]="newQuote.title" name="title" placeholder="Title (optional)" />
+    <textarea [(ngModel)]="newQuote.quote" name="quote" placeholder="Quote" required></textarea>
+    <input type="date" [(ngModel)]="newQuote.date" name="date" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <div *ngIf="success" class="success-message">{{ success }}</div>
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <h3>All Quotes</h3>
+  <div *ngFor="let q of quotes" class="quote-block">
+    <blockquote>"{{ q.quote }}"</blockquote>
+    <p>- {{ q.author }} | {{ q.date | date }}</p>
+    <small *ngIf="q.title">Title: {{ q.title }}</small>
+  </div>
+</div>

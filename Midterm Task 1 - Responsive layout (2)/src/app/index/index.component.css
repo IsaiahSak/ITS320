@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .quote-container {
+    @apply max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg;
+  }
+
+  .quote-container h2 {
+    @apply text-2xl font-bold mb-4 text-gray-800;
+  }
+
+  .quote-container form {
+    @apply space-y-4;
+  }
+
+  .quote-container form input,
+  .quote-container form textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .quote-container form textarea {
+    @apply resize-none;
+  }
+
+  .quote-container form button {
+    @apply w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300;
+  }
+
+  .quote-container .success-message {
+    @apply mt-4 text-green-600 font-medium;
+  }
+
+  .quote-container .error-message {
+    @apply mt-4 text-red-600 font-medium;
+  }
+
+  .quote-container h3 {
+    @apply text-xl font-semibold mt-8 mb-4 text-gray-700;
+  }
+
+  .quote-container .quote-block {
+    @apply mb-4 p-4 border-l-4 border-blue-600 bg-gray-50 rounded;
+  }
+
+  .quote-container .quote-block blockquote {
+    @apply italic text-gray-800 mb-2;
+  }
+
+  .quote-container .quote-block p {
+    @apply text-sm text-gray-600;
+  }
+
+  .quote-container .quote-block small {
+    @apply text-xs text-gray-500;
+  }
+}
