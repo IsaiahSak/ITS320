@@ -1,0 +1,49 @@
+<div class="home-container p-6"> 
+    <div class="text-area mb-6">
+      <h1 class="text-6xl text-green-500 text-start">Hello! This is My Todo Application</h1>
+      <p class="text-2xl text-start text-red-700">
+        Please Enter Your Dedicated Task Here and Other Details
+      </p>
+    </div>
+  
+    <!-- Todo Form -->
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div>
+        <label class="block">Task:</label>
+        <input class="border p-2 w-full" formControlName="task" placeholder="Finish thesis documentation">
+      </div>
+  
+      <div>
+        <label class="block">Created By:</label>
+        <input class="border p-2 w-full" formControlName="createdBy" placeholder="Isaiah Bentinganan">
+      </div>
+  
+      <div>
+        <label class="block">Due Date:</label>
+        <input type="date" class="border p-2 w-full" formControlName="dueDate">
+      </div>
+  
+      <div>
+        <label class="block">Description:</label>
+        <textarea class="border p-2 w-full" formControlName="description" placeholder="Buy groceries for tomorrow."></textarea>
+      </div>
+  
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">
+        {{ selectedTaskId ? 'Update Task' : 'Add Task' }}
+      </button>
+    </form>
+  
+    <!-- Display Todo List -->
+    <div class="mt-10">
+      <h2 class="text-2xl font-bold mb-4">Task List</h2>
+      <div *ngFor="let task of tasks" class="bg-gray-100 p-4 mb-2 rounded shadow">
+        <p><strong>Task:</strong> {{ task.task }}</p>
+        <p><strong>Created By:</strong> {{ task.createdBy }}</p>
+        <p><strong>Due Date:</strong> {{ task.dueDate }}</p>
+        <p><strong>Description:</strong> {{ task.description }}</p>
+        <button (click)="editTask(task)" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
+        <button (click)="deleteTodo(task._id)" class="bg-red-500 text-white px-4 py-2 rounded ml-2">Delete</button>
+      </div>
+    </div>
+  </div>
+  
